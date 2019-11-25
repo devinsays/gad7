@@ -4,6 +4,7 @@ import 'package:gad7/styles/theme.dart';
 import 'package:gad7/views/loading.dart';
 import 'package:gad7/views/overview.dart';
 import 'package:gad7/views/start.dart';
+import 'package:gad7/views/questionaire.dart';
 
 void main() {
   runApp(
@@ -14,6 +15,7 @@ void main() {
           '/': (context) => Loading(),
           '/overview': (context) => Overview(),
           '/start': (context) => Start(),
+          '/questionaire': (context) => Questionaire(),
         },
       ),
   );

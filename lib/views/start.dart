@@ -24,7 +24,7 @@ class Start extends StatelessWidget {
                 StyledFlatButton(
                   'Start Questionaire',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/start');
+                    Navigator.pushNamed(context, '/questionaire');
                   },
                 ),
                 Spacer(),
