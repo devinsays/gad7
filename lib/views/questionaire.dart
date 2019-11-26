@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:gad7/styles/styles.dart';
-import 'package:gad7/widgets/styled_radio_buttons.dart';
+import 'package:gad7/widgets/radio_button_group.dart';
 
 class Questionaire extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _QuestionaireState extends State<Questionaire> {
                 Text(
                     'How often have they been bothered by the following over the past 2 weeks?'),
                 Text('Feeling nervous, anxious, or on edge'),
-                StyledRadioButtons(
+                RadioButtonGroup(
                   data: radioBtns,
                   groupValue: q1,
                   onChanged: (int value) {

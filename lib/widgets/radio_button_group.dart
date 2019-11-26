@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
 // This class is used to create a list of button settings.
-// StyledRadioButtons uses this list to render the button controls.
+// RadioButtonGroup uses this list to render the button controls.
 class RadioButtonData {
   dynamic value;
   String label;
   RadioButtonData(this.value, this.label);
 }
 
-class StyledRadioButtons extends FormField<RadioButtonData> {
+class RadioButtonGroup extends FormField<RadioButtonData> {
   final List<RadioButtonData> data;
   final dynamic groupValue;
   final Function onChanged;
 
-  StyledRadioButtons({
+  RadioButtonGroup({
     this.data,
     this.groupValue,
     this.onChanged,
