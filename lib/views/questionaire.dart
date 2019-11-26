@@ -14,7 +14,17 @@ class _QuestionaireState extends State<Questionaire> {
   final controller = PageController(
     initialPage: 0,
   );
-  int q1;
+  List<int> responses = List()..length = 6;
+
+  final List<String> questions = [
+    'Feeling nervous, anxious, or on edge',
+    'Not being able to stop or control worrying',
+    'Worrying too much about different things',
+    'Trouble relaxing',
+    'Being so restless that it\'s hard to sit still',
+    'Becoming easily annoyed or irritable',
+    'Feeling afraid as if something awful might happen',
+  ];
 
   final List<RadioButtonData> radioBtns = [
     RadioButtonData(0, "Not at all"),
@@ -37,15 +47,13 @@ class _QuestionaireState extends State<Questionaire> {
             Container(
                 child: Column(
               children: <Widget>[
-                Text(
-                    'How often have they been bothered by the following over the past 2 weeks?'),
-                Text('Feeling nervous, anxious, or on edge'),
+                Text(questions[0]),
                 RadioButtonGroup(
                   data: radioBtns,
-                  groupValue: q1,
+                  groupValue: responses[0],
                   onChanged: (int value) {
                     setState(() {
-                      q1 = value;
+                      responses[0] = value;
                     });
                   },
                 ),
