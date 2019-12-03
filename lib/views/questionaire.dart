@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:gad7/styles/styles.dart';
 import 'package:gad7/widgets/radio_button_group.dart';
+import 'package:gad7/widgets/styled_flat_button.dart';
 
 class Questionaire extends StatefulWidget {
   @override
@@ -11,13 +12,14 @@ class Questionaire extends StatefulWidget {
 class _QuestionaireState extends State<Questionaire> {
   static final GlobalKey<ScaffoldState> _scaffoldKey =
       GlobalKey<ScaffoldState>();
-  final controller = PageController(
+  final _pageController = PageController(
     initialPage: 0,
   );
-  List<int> responses = List()..length = 6;
 
-  final List<String> questions = [
-    'Feeling nervous, anxious, or on edge',
+  List<int> responses = [null,null,null,null,null,null,null];
+
+  List<String> questions = [
+    'Over the last two weeks, how often have you felt nervous, anxious, or on edge?',
     'Not being able to stop or control worrying',
     'Worrying too much about different things',
     'Trouble relaxing',
@@ -35,61 +37,67 @@ class _QuestionaireState extends State<Questionaire> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        title: Text('Questionaire'),
-      ),
-      body: Center(
-        child: PageView(
-          controller: controller,
-          children: [
-            Container(
-                child: Column(
+    List<Widget> getPages() {
+      List<Widget> pages = [];
+      questions.asMap().forEach((i, question) {
+        pages.add(
+          Container(
+            child: Column(
               children: <Widget>[
-                Text(questions[0]),
+                Text(
+                  question,
+                  style: Styles.h1,
+                ),
                 RadioButtonGroup(
                   data: radioBtns,
-                  groupValue: responses[0],
+                  groupValue: responses[i],
                   onChanged: (int value) {
                     setState(() {
-                      responses[0] = value;
+                      responses[i] = value;
                     });
                   },
                 ),
               ],
-            )),
-            Container(
-              color: Colors.white,
-              child: Card(
-                color: Colors.purpleAccent,
-                elevation: 4,
-                margin: EdgeInsets.all(24),
-                child: Center(
-                  child: Text(
-                    "Card 2",
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
+            ),
+          ),
+        );
+      });
+      return pages;
+    }
+
+    return Scaffold(
+      key: _scaffoldKey,
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(30.0),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                child: PageView(
+                  controller: _pageController,
+                  children: getPages(),
                 ),
               ),
-            ),
-            Container(
-              color: Colors.white,
-              child: Card(
-                color: Colors.pink,
-                elevation: 4,
-                margin: EdgeInsets.all(24),
-                child: Center(
-                  child: Text(
-                    "Card 3",
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
-                ),
+              StyledFlatButton(
+                'Continue',
+                onPressed: () {
+                  print(_pageController);
+                  _pageController.nextPage(
+                    duration: Duration(milliseconds: 200),
+                    curve: Curves.easeInOut,
+                  );
+                },
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 }
