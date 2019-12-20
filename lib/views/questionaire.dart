@@ -10,13 +10,26 @@ class Questionaire extends StatefulWidget {
 }
 
 class _QuestionaireState extends State<Questionaire> {
-  static final GlobalKey<ScaffoldState> _scaffoldKey =
-      GlobalKey<ScaffoldState>();
-  final _pageController = PageController(
-    initialPage: 0,
-  );
+  static final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  PageController _pageController;
 
-  List<int> responses = [null,null,null,null,null,null,null];
+    pageViewListener() {
+    print(_pageController.page);
+  }
+
+  @override
+  void initState() {
+    _pageController = PageController(
+    initialPage: 0,
+  )..addListener(pageViewListener);
+
+  super.initState();
+
+  }
+
+  int currentPage = 0;
+
+  List<int> responses = [null, null, null, null, null, null, null];
 
   List<String> questions = [
     'Over the last two weeks, how often have you felt nervous, anxious, or on edge?',
@@ -35,8 +48,37 @@ class _QuestionaireState extends State<Questionaire> {
     RadioButtonData(3, "Nearly every day"),
   ];
 
+  
+
   @override
   Widget build(BuildContext context) {
+
+    // Returns a button for the currentPage.
+    // The last page in the series returns a "Complete" button.
+    Widget getButton() {
+      if (currentPage < questions.length - 1) {
+        return StyledFlatButton(
+          'Continue',
+          onPressed: () {
+            _pageController.nextPage(
+              duration: Duration(milliseconds: 200),
+              curve: Curves.easeInOut,
+            );
+            setState(() {
+              currentPage = currentPage + 1;
+            });
+          },
+        );
+      }
+      
+      return StyledFlatButton(
+        'Complete',
+        onPressed: () {
+          print('Form is complete');
+        },
+      );
+    }
+
     List<Widget> getPages() {
       List<Widget> pages = [];
       questions.asMap().forEach((i, question) {
@@ -78,16 +120,7 @@ class _QuestionaireState extends State<Questionaire> {
                   children: getPages(),
                 ),
               ),
-              StyledFlatButton(
-                'Continue',
-                onPressed: () {
-                  print(_pageController);
-                  _pageController.nextPage(
-                    duration: Duration(milliseconds: 200),
-                    curve: Curves.easeInOut,
-                  );
-                },
-              ),
+              getButton(),
             ],
           ),
         ),
