@@ -1,32 +1,47 @@
 import 'package:flutter/material.dart';
 
+import 'package:gad7/database_helper.dart';
+import 'package:gad7/models/entry.dart';
 import 'package:gad7/styles/styles.dart';
-import 'package:gad7/widgets/styled_flat_button.dart';
 
-class History extends StatelessWidget {
+class History extends StatefulWidget {
+  @override
+  _HistoryState createState() => _HistoryState();
+}
+
+class _HistoryState extends State<History> {
+  final dbHelper = DatabaseHelper.instance;
+  List<Entry> history;
+
+  _getHistory() async {
+    List<Entry> entries = await dbHelper.query();
+    print(entries);
+    setState(() {
+      history = entries;
+    });
+  }
+
+  @override
+  void initState() {
+    _getHistory();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    print('History');
+    print(history);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('History'),
       ),
-      body: Center(
-        child: Container(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-            child: Column(
-              children: [
-                Spacer(),
-                Text(
-                  'All Results',
-                  style: Styles.p,
-                ),
-                Spacer(),
-              ],
-            ),
-          ),
-        ),
-      ),
+      body: (history == null) ? Container() : ListView.builder(
+          itemCount: history.length,
+          itemBuilder: (BuildContext context, int index) {
+            Entry entry = history[index];
+            return Text(entry.id.toString());
+          }),
     );
   }
 }

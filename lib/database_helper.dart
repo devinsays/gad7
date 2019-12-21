@@ -3,7 +3,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'package:gad7/models/entries.dart';
+import 'package:gad7/models/entry.dart';
 
 class DatabaseHelper {
   static final _databaseName = "gad7.db";
@@ -34,15 +34,26 @@ class DatabaseHelper {
     );
   }
 
-  // SQL code to create the database table
+  // SQL code to create the database table.
   Future _onCreate(Database db, int version) async {
-    await db.execute(Entries.createTable);
+    await db.execute(Entry.createTable);
   }
 
   // Inserts a row into the database.
   Future<int> insert(Map<String, dynamic> row) async {
     Database db = await instance.database;
     return await db.insert('entries', row);
+  }
+
+  // Queries all entries.
+  Future<List<Entry>> query() async {
+    Database db = await instance.database;
+    List<Map<String, dynamic>> result = await db.query('entries');
+    List<Entry> entries = [];
+    result.forEach((row) {
+      entries.add(Entry.fromMap(row));
+    });
+    return entries;
   }
 
 }

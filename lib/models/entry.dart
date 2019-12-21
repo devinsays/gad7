@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-class Entries {
+class Entry {
   int id;
   DateTime createdAt;
   int q1;
@@ -11,7 +9,7 @@ class Entries {
   int q6;
   int q7;
 
-  Entries({
+  Entry({
     this.id,
     this.createdAt,
     this.q1,
@@ -22,6 +20,17 @@ class Entries {
     this.q6,
     this.q7,
   });
+
+  Entry.fromMap(Map<String, dynamic> map) :
+    id = map['id'],
+    createdAt = DateTime.fromMillisecondsSinceEpoch(map['createdAt']),
+    q1 = map['q1'],
+    q2 = map['q2'],
+    q3 = map['q3'],
+    q4 = map['q4'],
+    q5 = map['q5'],
+    q6 = map['q6'],
+    q7 = map['q7'];
 
   static String createTable = '''
     CREATE TABLE entries(

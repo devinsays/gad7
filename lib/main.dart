@@ -5,6 +5,7 @@ import 'package:gad7/views/loading.dart';
 import 'package:gad7/views/overview.dart';
 import 'package:gad7/views/start.dart';
 import 'package:gad7/views/questionaire.dart';
+import 'package:gad7/views/history.dart';
 
 void main() {
   runApp(
@@ -16,6 +17,7 @@ void main() {
           '/overview': (context) => Overview(),
           '/start': (context) => Start(),
           '/questionaire': (context) => Questionaire(),
+          '/history': (context) => History(),
         },
       ),
   );
