@@ -8,8 +8,12 @@ class StyledFlatButton extends StatelessWidget {
   final onPressed;
   final bool loading;
 
-  StyledFlatButton(this.text, {this.onPressed, this.loading = false, Key key})
-      : super(key: key);
+  StyledFlatButton(
+    this.text, {
+    this.onPressed,
+    this.loading = false,
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +40,7 @@ class StyledFlatButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 18.0),
         child: loading ? progressIndicator : buttonText,
       ),
-      onPressed: () {
-        this.onPressed();
-      },
+      onPressed: this.onPressed,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4.0),
         side: BorderSide(

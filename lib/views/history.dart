@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:gad7/styles/styles.dart';
 import 'package:gad7/widgets/styled_flat_button.dart';
 
-class Overview extends StatelessWidget {
-
+class History extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Overview'),
+        title: Text('History'),
       ),
       body: Center(
         child: Container(
@@ -19,14 +18,8 @@ class Overview extends StatelessWidget {
               children: [
                 Spacer(),
                 Text(
-                  'This app helps you to monitor and track anxiety symptoms over time. It\'s not meant to replace a clinical assessment or diagnois.',
+                  'All Results',
                   style: Styles.p,
-                ),
-                StyledFlatButton(
-                  'Get Started',
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/start');
-                  },
                 ),
                 Spacer(),
               ],

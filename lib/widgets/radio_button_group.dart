@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class RadioButtonData {
   dynamic value;
   String label;
+
   RadioButtonData(this.value, this.label);
 }
 
@@ -29,17 +30,19 @@ class RadioButtonGroup extends FormField<RadioButtonData> {
               width: double.infinity,
               child: InputDecorator(
                 child: Column(
-                  children: data.map((button) {
-                    return RadioListTile(
-                      title: Text(button.label),
-                      value: button.value,
-                      groupValue: groupValue,
-                      onChanged: (value) {
-                        onChanged(value);
-                        state.didChange(button);
-                      },
-                    );
-                  }).toList(),
+                  children: data.map(
+                    (button) {
+                      return RadioListTile(
+                        title: Text(button.label),
+                        value: button.value,
+                        groupValue: groupValue,
+                        onChanged: (value) {
+                          onChanged(value);
+                          state.didChange(button);
+                        },
+                      );
+                    },
+                  ).toList(),
                 ),
                 decoration: InputDecoration(
                   errorText: state.errorText,
