@@ -27,4 +27,6 @@ class Palette {
   // Alert Red
   static Color danger500 = Color(0xffC0341D);
 
+  static Color background = Color(0xff57a7ff);
+
 }
