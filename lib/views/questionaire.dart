@@ -67,13 +67,13 @@ class _QuestionaireState extends State<Questionaire> {
 
   // One question is displayed per page in the PageView.
   List<String> questions = [
-    'Over the last two weeks, how often have you felt nervous, anxious, or on edge?',
-    'Not being able to stop or control worrying',
-    'Worrying too much about different things',
-    'Trouble relaxing',
-    'Being so restless that it\'s hard to sit still',
-    'Becoming easily annoyed or irritable',
-    'Feeling afraid as if something awful might happen',
+    'How often have you felt nervous, anxious, or on edge?',
+    'How often have you not being able to stop or control worrying?',
+    'How often have you been worrying too much about different things?',
+    'How often have you had trouble relaxing?',
+    'Being so restless that it\'s hard to sit still?',
+    'How often have you become easily annoyed or irritable?',
+    'Feeling afraid as if something awful might happen?',
   ];
 
   // The radio buttons are the same for each question.
@@ -119,13 +119,23 @@ class _QuestionaireState extends State<Questionaire> {
         pages.add(
           Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Text(
+                  'Over the last two weeks:',
+                  style: Styles.p,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
                 Text(
                   question,
                   style: Styles.q,
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 RadioButtonGroup(
                   data: radioBtns,
                   groupValue: responses[i],
@@ -152,11 +162,9 @@ class _QuestionaireState extends State<Questionaire> {
           child: Column(
             children: <Widget>[
               Expanded(
-                child: Center(
-                  child: PageView(
-                    controller: _pageController,
-                    children: getPages(),
-                  ),
+                child: PageView(
+                  controller: _pageController,
+                  children: getPages(),
                 ),
               ),
               getButton(),

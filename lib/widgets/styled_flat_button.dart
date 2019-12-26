@@ -34,22 +34,32 @@ class StyledFlatButton extends StatelessWidget {
       ),
     );
 
+    bool disabled = false;
+    if (onPressed == null) {
+      disabled = true;
+    }
+
     return ConstrainedBox(
       constraints: BoxConstraints(minWidth: double.infinity),
-      child: FlatButton(
-      color: Palette.purple,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 18.0),
-        child: loading ? progressIndicator : buttonText,
-      ),
-      onPressed: this.onPressed,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-        side: BorderSide(
+      child: Opacity(
+        opacity: disabled ? .5 : 1,
+        child: FlatButton(
           color: Palette.purple,
-          width: 2,
+          disabledColor: Palette.purple,
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 18.0),
+            child: loading ? progressIndicator : buttonText,
+          ),
+          onPressed: this.onPressed,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18.0),
+            side: BorderSide(
+              color: Palette.purple,
+              width: 2,
+            ),
+          ),
         ),
       ),
-    ),);
+    );
   }
 }
