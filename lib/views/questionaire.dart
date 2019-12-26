@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:gad7/styles/palette.dart';
 import 'package:gad7/database_helper.dart';
 import 'package:gad7/styles/styles.dart';
 import 'package:gad7/views/result.dart';
@@ -118,11 +119,13 @@ class _QuestionaireState extends State<Questionaire> {
         pages.add(
           Container(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
                   question,
-                  style: Styles.h1,
+                  style: Styles.q,
                 ),
+                SizedBox(height: 10,),
                 RadioButtonGroup(
                   data: radioBtns,
                   groupValue: responses[i],
@@ -142,15 +145,18 @@ class _QuestionaireState extends State<Questionaire> {
 
     return Scaffold(
       key: _scaffoldKey,
+      backgroundColor: Palette.background,
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.all(30.0),
           child: Column(
             children: <Widget>[
               Expanded(
-                child: PageView(
-                  controller: _pageController,
-                  children: getPages(),
+                child: Center(
+                  child: PageView(
+                    controller: _pageController,
+                    children: getPages(),
+                  ),
                 ),
               ),
               getButton(),

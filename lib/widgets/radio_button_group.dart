@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:gad7/styles/styles.dart';
+import 'package:gad7/styles/palette.dart';
+
 // This class is used to create a list of button settings.
 // RadioButtonGroup uses this list to render the button controls.
 class RadioButtonData {
@@ -32,8 +35,18 @@ class RadioButtonGroup extends FormField<RadioButtonData> {
                 child: Column(
                   children: data.map(
                     (button) {
+                      bool opacity = false;
+                      if (groupValue != null && button.value != groupValue) {
+                        opacity = true;
+                      }
                       return RadioListTile(
-                        title: Text(button.label),
+                        title: Opacity(
+                          opacity: opacity ? .5 : 1,
+                          child: Text(
+                            button.label,
+                            style: Styles.a,
+                          ),
+                        ),
                         value: button.value,
                         groupValue: groupValue,
                         onChanged: (value) {

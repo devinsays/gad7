@@ -45,9 +45,7 @@ class Overview extends StatelessWidget {
                     ),
                     Text(
                       'Anxiety Tracker',
-                      style: Styles.h1.copyWith(
-                        color: Palette.white,
-                      ),
+                      style: Styles.h1
                     ),
                     SizedBox(
                       height: 5,
@@ -55,9 +53,7 @@ class Overview extends StatelessWidget {
                     Text(
                       'This app helps you to monitor and track anxiety symptoms over time. It\'s not meant to replace a clinical assessment or diagnois.',
                       textAlign: TextAlign.center,
-                      style: Styles.p.copyWith(
-                        color: Palette.white,
-                      ),
+                      style: Styles.p
                     ),
                   ],
                 ),

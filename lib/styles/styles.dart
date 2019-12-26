@@ -4,13 +4,23 @@ import 'package:gad7/styles/palette.dart';
 
 class Styles {
   static TextStyle defaultStyle = TextStyle(
-    color: Palette.primary,
+    color: Palette.white,
   );
 
   static TextStyle h1 = defaultStyle.copyWith(
     fontWeight: FontWeight.w700,
     fontSize: 18.0,
     height: 22 / 18,
+  );
+
+  static TextStyle q = defaultStyle.copyWith(
+    fontWeight: FontWeight.w500,
+    fontSize: 18.0,
+  );
+
+  static TextStyle a = defaultStyle.copyWith(
+    fontSize: 16.0,
+    fontWeight: FontWeight.w500,
   );
 
   static TextStyle p = defaultStyle.copyWith(
