@@ -28,5 +28,6 @@ class Palette {
   static Color danger500 = Color(0xffC0341D);
 
   static Color background = Color(0xff57a7ff);
+  static Color purple = Color(0xff251e9b);
 
 }

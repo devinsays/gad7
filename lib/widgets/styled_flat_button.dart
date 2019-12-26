@@ -34,20 +34,22 @@ class StyledFlatButton extends StatelessWidget {
       ),
     );
 
-    return FlatButton(
-      color: Palette.primary500,
+    return ConstrainedBox(
+      constraints: BoxConstraints(minWidth: double.infinity),
+      child: FlatButton(
+      color: Palette.purple,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 18.0),
         child: loading ? progressIndicator : buttonText,
       ),
       onPressed: this.onPressed,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4.0),
+        borderRadius: BorderRadius.circular(18.0),
         side: BorderSide(
-          color: Palette.primary500,
+          color: Palette.purple,
           width: 2,
         ),
       ),
-    );
+    ),);
   }
 }

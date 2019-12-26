@@ -23,43 +23,65 @@ class Overview extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-        child: Column(
-          children: [
-            FittedBox(
-              fit: BoxFit.fill,
-              child: SvgPicture.asset(
-                'assets/images/cover.svg',
-                semanticsLabel: 'Person reading a chart.',
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
+          child: Column(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FittedBox(
+                      fit: BoxFit.fill,
+                      child: SvgPicture.asset(
+                        'assets/images/cover.svg',
+                        semanticsLabel: 'Person reading a chart.',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'Anxiety Tracker',
+                      style: Styles.h1.copyWith(
+                        color: Palette.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      'This app helps you to monitor and track anxiety symptoms over time. It\'s not meant to replace a clinical assessment or diagnois.',
+                      textAlign: TextAlign.center,
+                      style: Styles.p.copyWith(
+                        color: Palette.white,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Text(
-              'Anxiety Tracker',
-              style: Styles.h1.copyWith(
-                color: Palette.white,
+              StyledFlatButton(
+                'Get Started',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/questionaire');
+                },
               ),
-            ),
-            Text(
-              'This app helps you to monitor and track anxiety symptoms over time. It\'s not meant to replace a clinical assessment or diagnois.',
-              textAlign: TextAlign.center,
-              style: Styles.p.copyWith(
-                color: Palette.white,
+              SizedBox(
+                height: 10,
               ),
-            ),
-            StyledFlatButton(
-              'Get Started',
-              onPressed: () {
-                Navigator.pushNamed(context, '/questionaire');
-              },
-            ),
-            Text(
-              'View History',
-              style: Styles.p.copyWith(
-                color: Palette.white,
+              Text(
+                'View History',
+                style: Styles.p.copyWith(
+                  color: Palette.white,
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
         ),
       ),
     );

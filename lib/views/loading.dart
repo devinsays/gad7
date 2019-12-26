@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:gad7/styles/palette.dart';
+
 class Loading extends StatelessWidget {
 
   initApp(context) async {
     SharedPreferences storage = await SharedPreferences.getInstance();
     bool onboarded = storage.getBool('onboarded') ?? false;
-
-    if (onboarded) {
-      Navigator.pushReplacementNamed(context, '/start');
-    }
-
+    // If you wanted to show a different view for onboarded person.
     Navigator.pushReplacementNamed(context, '/overview');
   }
 
@@ -20,9 +18,7 @@ class Loading extends StatelessWidget {
     initApp(context);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('GAD-7'),
-      ),
+      backgroundColor: Palette.background,
       body: Center(
         child: Container(
           child: Padding(
