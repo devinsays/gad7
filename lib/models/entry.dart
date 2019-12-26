@@ -21,6 +21,10 @@ class Entry {
     this.q7,
   });
 
+  getTotal() {
+    return q1 + q2 + q3 + q4 + q5 + q6 + q7;
+  }
+
   Entry.fromMap(Map<String, dynamic> map) :
     id = map['id'],
     createdAt = DateTime.fromMillisecondsSinceEpoch(map['createdAt']),

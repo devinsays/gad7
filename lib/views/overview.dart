@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:gad7/styles/styles.dart';
 import 'package:gad7/styles/palette.dart';
+import 'package:gad7/widgets/menu.dart';
 import 'package:gad7/widgets/styled_flat_button.dart';
 
 class Overview extends StatelessWidget {
@@ -14,13 +15,7 @@ class Overview extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            tooltip: 'Menu',
-            onPressed: () {
-              // Some action.
-            },
-          ),
+          Menu(),
         ],
       ),
       body: SafeArea(
@@ -70,7 +65,7 @@ class Overview extends StatelessWidget {
                 height: 10,
               ),
               Text(
-                'View History',
+                'View Previous Results',
                 style: Styles.p.copyWith(
                   color: Palette.white,
                 ),

@@ -22,8 +22,6 @@ class _QuestionaireState extends State<Questionaire> {
   int currentPage = 0;
 
   void _complete() async {
-    print('Survey complete');
-    // row to insert
     Map<String, dynamic> row = {
       'createdAt': DateTime.now().millisecondsSinceEpoch,
       'q1': responses[0],
@@ -34,8 +32,8 @@ class _QuestionaireState extends State<Questionaire> {
       'q6': responses[5],
       'q7': responses[6],
     };
-    final id = await dbHelper.insert(row);
-    print('inserted row id: $id');
+    
+    await dbHelper.insert(row);
 
     Navigator.pushReplacement(
       context,

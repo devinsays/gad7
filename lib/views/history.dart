@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'package:gad7/database_helper.dart';
 import 'package:gad7/models/entry.dart';
 import 'package:gad7/styles/styles.dart';
+import 'package:gad7/styles/palette.dart';
+import 'package:gad7/widgets/menu.dart';
+import 'package:gad7/data/scale.dart';
 
 class History extends StatefulWidget {
   @override
@@ -15,7 +19,6 @@ class _HistoryState extends State<History> {
 
   _getHistory() async {
     List<Entry> entries = await dbHelper.query();
-    print(entries);
     setState(() {
       history = entries;
     });
@@ -29,19 +32,51 @@ class _HistoryState extends State<History> {
 
   @override
   Widget build(BuildContext context) {
-    print('History');
-    print(history);
-
     return Scaffold(
+      backgroundColor: Palette.background,
       appBar: AppBar(
-        title: Text('History'),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        actions: <Widget>[
+          Menu(),
+        ],
       ),
-      body: (history == null) ? Container() : ListView.builder(
-          itemCount: history.length,
-          itemBuilder: (BuildContext context, int index) {
-            Entry entry = history[index];
-            return Text(entry.id.toString());
-          }),
+      body: (history == null)
+          ? Container()
+          : ListView.builder(
+              itemCount: history.length,
+              itemBuilder: (BuildContext context, int index) {
+                Entry entry = history[index];
+                int score = entry.getTotal();
+                Map result = Scale.getResult(score);
+                return Card(
+                  child: InkWell(
+                    onTap: () {
+                      print('Card tapped.');
+                    },
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        foregroundColor: Palette.white,
+                        backgroundColor: Palette.background,
+                        child: Text(entry.getTotal().toString()),
+                      ),
+                      title: Text(
+                        result['label'],
+                        style: Styles.q.copyWith(
+                          color: Palette.black,
+                        ),
+                      ),
+                      subtitle: Text(
+                        DateFormat("MMM d y HH:mm").format(entry.createdAt),
+                        style: Styles.p.copyWith(
+                          color: Palette.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
     );
   }
 }

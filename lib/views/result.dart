@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:gad7/styles/palette.dart';
 import 'package:gad7/styles/styles.dart';
+import 'package:gad7/data/scale.dart';
+import 'package:gad7/widgets/menu.dart';
 
 class Result extends StatelessWidget {
   final List<int> responses;
@@ -10,41 +12,8 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    responses.asMap().forEach(
-      (i, response) {
-        print(responses[i]);
-      },
-    );
-
     int result = responses.reduce((value, element) => value + element);
-
-    Map scale = {
-      'none': {
-        'title': '0 score indicates no anxiety.',
-        'description': 'No action is suggested.',
-      },
-      'mild': {
-        'title': '1-4 score indicates minimal anxiety.',
-        'description': 'Periodic monitoring is suggested.',
-      },
-      'moderate': {
-        'title': '10-14 score indicates moderate anxiety.',
-        'description': 'Possible clinically significant condition.',
-      },
-      'severe': {
-        'title': '15-21 score indicates severe anxiety.',
-        'description': 'Active treatment probably warranted.',
-      },
-    };
-
-    Map diagnosis = scale['none'];
-    if (result > 0 && result <= 4) {
-      diagnosis = scale['mild'];
-    } else if (result >= 10 && result <= 14) {
-      diagnosis = scale['moderate'];
-    } else if (result > 14 ) {
-      diagnosis = scale['severe'];
-    }
+    Map diagnosis = Scale.getResult(result);
 
     return Scaffold(
       backgroundColor: Palette.background,
@@ -53,13 +22,7 @@ class Result extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: Container(),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            tooltip: 'Menu',
-            onPressed: () {
-              // Some action.
-            },
-          ),
+          Menu(),
         ],
       ),
       body: Container(
