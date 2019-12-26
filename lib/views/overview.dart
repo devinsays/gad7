@@ -34,10 +34,12 @@ class Overview extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FittedBox(
-                      fit: BoxFit.fill,
+                      fit: BoxFit.contain,
                       child: SvgPicture.asset(
                         'assets/images/cover.svg',
                         semanticsLabel: 'Person reading a chart.',
+                        width: 1188,
+                        height: 718,
                       ),
                     ),
                     SizedBox(

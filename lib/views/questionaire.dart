@@ -16,30 +16,10 @@ class _QuestionaireState extends State<Questionaire> {
   final dbHelper = DatabaseHelper.instance;
   static final GlobalKey<ScaffoldState> _scaffoldKey =
       GlobalKey<ScaffoldState>();
-  PageController _pageController;
+  PageController _pageController = PageController(
+    initialPage: 0,
+  );
   int currentPage = 0;
-
-  pageViewListener() {
-    int listenerPage = _pageController.page.round();
-    // Setting state causes the widget to rebuild.
-    // This is necessary to update the button below the PageView.
-    if (currentPage != listenerPage) {
-      setState(() {
-        currentPage = listenerPage;
-      });
-    }
-  }
-
-  @override
-  void initState() {
-    // Sets the PageController to start on the first page.
-    // Adds a listener to detect when the page has changed.
-    _pageController = PageController(
-      initialPage: 0,
-    )..addListener(pageViewListener);
-
-    super.initState();
-  }
 
   void _complete() async {
     print('Survey complete');
@@ -57,7 +37,7 @@ class _QuestionaireState extends State<Questionaire> {
     final id = await dbHelper.insert(row);
     print('inserted row id: $id');
 
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: (context) => Result(responses: responses),
@@ -165,6 +145,11 @@ class _QuestionaireState extends State<Questionaire> {
                 child: PageView(
                   controller: _pageController,
                   children: getPages(),
+                  onPageChanged: (int page) => {
+                    setState(() {
+                      currentPage = page;
+                    }),
+                  },
                 ),
               ),
               getButton(),
