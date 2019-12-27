@@ -49,9 +49,14 @@ class Overview extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Text(
-            'View Previous Results',
-            style: Styles.p,
+          GestureDetector(
+            child: Text(
+              'View Previous Results',
+              style: Styles.p,
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/history');
+            },
           ),
         ],
       ),

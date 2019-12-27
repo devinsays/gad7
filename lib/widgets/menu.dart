@@ -13,7 +13,7 @@ class Menu extends StatelessWidget {
         PopupMenuItem(
           value: 'history',
           child: Text(
-            'Previous Results',
+            'Response History',
           ),
         ),
         PopupMenuItem(

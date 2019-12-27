@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gad7/styles/styles.dart';
 import 'package:gad7/data/scale.dart';
 import 'package:gad7/widgets/custom_scaffold.dart';
+import 'package:gad7/widgets/styled_flat_button.dart';
 
 class Result extends StatelessWidget {
   final List<int> responses;
@@ -16,14 +17,20 @@ class Result extends StatelessWidget {
 
     return CustomScaffold(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Spacer(),
+          Center(
+            child: Text(
+              'GAD7 Score',
+              style: Styles.p,
+            ),
+          ),
           Text(
-            '$result / 21',
+            '$result',
             style: Styles.h1.copyWith(
-              fontSize: 30,
+              fontSize: 90,
             ),
           ),
           SizedBox(
@@ -41,6 +48,24 @@ class Result extends StatelessWidget {
             style: Styles.p,
           ),
           Spacer(),
+          StyledFlatButton(
+            'Tips for Managing Anxiety',
+            onPressed: () {
+              // Do nothing.
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          GestureDetector(
+            child: Text(
+              'View All Responses',
+              style: Styles.p,
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/history');
+            },
+          ),
         ],
       ),
     );
