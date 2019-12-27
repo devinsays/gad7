@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:gad7/database_helper.dart';
+import 'package:gad7/data/scale.dart';
 import 'package:gad7/models/entry.dart';
 import 'package:gad7/styles/styles.dart';
 import 'package:gad7/styles/palette.dart';
+import 'package:gad7/widgets/custom_scaffold.dart';
 import 'package:gad7/widgets/menu.dart';
-import 'package:gad7/data/scale.dart';
 
 class History extends StatefulWidget {
   @override
@@ -32,16 +33,8 @@ class _HistoryState extends State<History> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Palette.background,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        actions: <Widget>[
-          Menu(),
-        ],
-      ),
-      body: (history == null)
+    return CustomScaffold(
+      child: (history == null)
           ? Container()
           : ListView.builder(
               itemCount: history.length,

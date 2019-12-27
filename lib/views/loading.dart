@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:gad7/styles/palette.dart';
+import 'package:gad7/widgets/custom_scaffold.dart';
 
 class Loading extends StatelessWidget {
-
   initApp(context) async {
     SharedPreferences storage = await SharedPreferences.getInstance();
     bool onboarded = storage.getBool('onboarded') ?? false;
@@ -14,19 +13,10 @@ class Loading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     initApp(context);
 
-    return Scaffold(
-      backgroundColor: Palette.background,
-      body: Center(
-        child: Container(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 0.0),
-            child: CircularProgressIndicator(),
-          ),
-        ),
-      ),
+    return CustomScaffold(
+      child: CircularProgressIndicator(),
     );
   }
 }
