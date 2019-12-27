@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:google_fonts/google_fonts.dart';
+
 final Map<int, Color> primarySwatch = const <int, Color> {
   900: Color(0xff2D2051),
   800: Color(0xff3B2F68),
@@ -15,6 +17,6 @@ final Map<int, Color> primarySwatch = const <int, Color> {
 
 final ThemeData themeData = new ThemeData(
   brightness: Brightness.light,
-  fontFamily: 'Steradian',
   primarySwatch: MaterialColor(0xff514A89, primarySwatch),
+  textTheme: GoogleFonts.rubikTextTheme(),
 );

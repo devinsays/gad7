@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:gad7/styles/palette.dart';
 
@@ -7,15 +8,18 @@ class Styles {
     color: Palette.white,
   );
 
-  static TextStyle h1 = defaultStyle.copyWith(
-    fontWeight: FontWeight.w700,
-    fontSize: 18.0,
-    height: 22 / 18,
+  static TextStyle h1 = GoogleFonts.playfairDisplay(
+    textStyle: defaultStyle.copyWith(
+      fontWeight: FontWeight.w700,
+      fontSize: 26.0,
+    ),
   );
 
-  static TextStyle q = defaultStyle.copyWith(
-    fontWeight: FontWeight.w500,
-    fontSize: 18.0,
+  static TextStyle q = GoogleFonts.playfairDisplay(
+    textStyle: defaultStyle.copyWith(
+      fontWeight: FontWeight.w700,
+      fontSize: 26.0,
+    ),
   );
 
   static TextStyle a = defaultStyle.copyWith(
@@ -25,6 +29,7 @@ class Styles {
 
   static TextStyle p = defaultStyle.copyWith(
     fontSize: 16.0,
+    letterSpacing: .25,
   );
 
   static TextStyle label = defaultStyle.copyWith(

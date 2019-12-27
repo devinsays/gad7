@@ -34,13 +34,3 @@ flutter:
 
   assets:
     - assets/images/
-
-  fonts:
-    - family: Steradian
-      fonts:
-        - asset: assets/fonts/Steradian-Regular.otf
-          weight: 300
-        - asset: assets/fonts/Steradian-Medium.otf
-          weight: 500
-        - asset: assets/fonts/Steradian-Bold.otf
-          weight: 700
