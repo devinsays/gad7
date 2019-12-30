@@ -1,11 +1,11 @@
 class GAD7 {
   static List<String> questions = [
-    'Felt nervous, anxious, or on edge',
-    'Not being able to stop or control worrying',
-    'Worried too much about different things',
-    'Had trouble relaxing',
-    'Been so restless it was hard to sit still',
-    'Become easily annoyed or irritable',
-    'Been afraid as if something awful might happen',
+    'Feeling nervous, anxious, or on edge.',
+    'Not being able to stop or control worrying.',
+    'Worrying too much about different things.',
+    'Trouble relaxing.',
+    'Being so restless that it\'s hard to sit still.',
+    'Becoming easily annoyed or irritable.',
+    'Feeling afraid as if something awful might happen.',
   ];
 }

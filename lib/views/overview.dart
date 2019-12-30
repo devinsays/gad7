@@ -43,7 +43,7 @@ class Overview extends StatelessWidget {
           StyledFlatButton(
             'Get Started',
             onPressed: () {
-              Navigator.pushNamed(context, '/questionaire');
+              Navigator.pushNamed(context, '/instructions');
             },
           ),
           SizedBox(

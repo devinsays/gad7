@@ -89,14 +89,7 @@ class _QuestionaireState extends State<Questionaire> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Over the last two weeks, how often have you:',
-                  style: Styles.p,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  '$question ?',
+                  '$question',
                   style: Styles.q,
                 ),
                 SizedBox(
