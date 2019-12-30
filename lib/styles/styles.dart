@@ -30,6 +30,7 @@ class Styles {
   static TextStyle p = defaultStyle.copyWith(
     fontSize: 16.0,
     letterSpacing: .25,
+    height: 20 / 16,
   );
 
   static TextStyle label = defaultStyle.copyWith(

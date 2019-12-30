@@ -6,14 +6,14 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopupMenuButton(
       icon: Icon(
-        Icons.more_vert,
+        Icons.more_horiz,
         color: Palette.white,
       ),
       itemBuilder: (context) => [
         PopupMenuItem(
           value: 'history',
           child: Text(
-            'Response History',
+            'Responses',
           ),
         ),
         PopupMenuItem(

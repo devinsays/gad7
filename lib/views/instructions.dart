@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:gad7/styles/styles.dart';
-import 'package:gad7/data/scale.dart';
 import 'package:gad7/widgets/custom_scaffold.dart';
 import 'package:gad7/widgets/styled_flat_button.dart';
 
