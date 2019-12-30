@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:gad7/styles/styles.dart';
-import 'package:gad7/styles/palette.dart';
 
 // This class is used to create a list of button settings.
 // RadioButtonGroup uses this list to render the button controls.

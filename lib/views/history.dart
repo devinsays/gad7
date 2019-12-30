@@ -7,7 +7,6 @@ import 'package:gad7/models/entry.dart';
 import 'package:gad7/styles/styles.dart';
 import 'package:gad7/styles/palette.dart';
 import 'package:gad7/widgets/custom_scaffold.dart';
-import 'package:gad7/widgets/menu.dart';
 
 class History extends StatefulWidget {
   @override
