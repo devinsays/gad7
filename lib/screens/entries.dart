@@ -46,12 +46,12 @@ class _EntriesState extends State<EntriesScreen> {
               ),
               DataCell(
                 Text(
-                  score.toString(),
+                  score.toString() + ' - ' + result['label'],
                 ),
               ),
               DataCell(
-                Text(
-                  result['label'],
+                Icon(
+                  Icons.chevron_right,
                 ),
               ),
             ],
@@ -83,7 +83,7 @@ class _EntriesState extends State<EntriesScreen> {
                 topRight: Radius.circular(5.0),
               ),
             ),
-            child: SingleChildScrollView(
+            child: (entries != null) ? SingleChildScrollView(
               child: DataTable(
                 columns: [
                   DataColumn(
@@ -91,15 +91,14 @@ class _EntriesState extends State<EntriesScreen> {
                   ),
                   DataColumn(
                     label: Text('Result'),
-                    numeric: true,
                   ),
                   DataColumn(
-                    label: Text('Severity'),
+                    label: Text('Details'),
                   ),
                 ],
                 rows: _getRows(),
               ),
-            ),
+            ) : Container(),
           ),
         ),
       ),
