@@ -4,7 +4,7 @@ import 'package:gad7/styles/styles.dart';
 import 'package:gad7/widgets/custom_scaffold.dart';
 import 'package:gad7/widgets/styled_flat_button.dart';
 
-class Instructions extends StatelessWidget {
+class InstructionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(

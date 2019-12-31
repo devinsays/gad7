@@ -5,7 +5,7 @@ import 'package:gad7/styles/styles.dart';
 import 'package:gad7/widgets/custom_scaffold.dart';
 import 'package:gad7/widgets/styled_flat_button.dart';
 
-class Overview extends StatelessWidget {
+class OverviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -55,7 +55,7 @@ class Overview extends StatelessWidget {
               style: Styles.p,
             ),
             onTap: () {
-              Navigator.pushNamed(context, '/history');
+              Navigator.pushNamed(context, '/entries');
             },
           ),
         ],

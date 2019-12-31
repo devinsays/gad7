@@ -5,10 +5,10 @@ import 'package:gad7/data/scale.dart';
 import 'package:gad7/widgets/custom_scaffold.dart';
 import 'package:gad7/widgets/styled_flat_button.dart';
 
-class Result extends StatelessWidget {
+class ResultScreen extends StatelessWidget {
   final List<int> responses;
 
-  Result({@required this.responses, Key key}) : super(key: key);
+  ResultScreen({@required this.responses, Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class Result extends StatelessWidget {
               style: Styles.p,
             ),
             onTap: () {
-              Navigator.pushNamed(context, '/history');
+              Navigator.pushNamed(context, '/entries');
             },
           ),
         ],

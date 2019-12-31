@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:gad7/database_helper.dart';
 import 'package:gad7/data/gad7.dart';
 import 'package:gad7/styles/styles.dart';
-import 'package:gad7/views/result.dart';
+import 'package:gad7/screens/result.dart';
 import 'package:gad7/widgets/custom_scaffold.dart';
 import 'package:gad7/widgets/radio_button_group.dart';
 import 'package:gad7/widgets/styled_flat_button.dart';
 
-class Questionaire extends StatefulWidget {
+class QuestionaireScreen extends StatefulWidget {
   @override
   _QuestionaireState createState() => _QuestionaireState();
 }
 
-class _QuestionaireState extends State<Questionaire> {
+class _QuestionaireState extends State<QuestionaireScreen> {
   final dbHelper = DatabaseHelper.instance;
   PageController _pageController = PageController(
     initialPage: 0,
@@ -37,7 +37,7 @@ class _QuestionaireState extends State<Questionaire> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => Result(responses: responses),
+        builder: (context) => ResultScreen(responses: responses),
       ),
     );
   }
