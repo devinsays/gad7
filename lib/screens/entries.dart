@@ -4,9 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:gad7/database_helper.dart';
 import 'package:gad7/data/scale.dart';
 import 'package:gad7/models/entry.dart';
-import 'package:gad7/styles/styles.dart';
 import 'package:gad7/styles/palette.dart';
-import 'package:gad7/widgets/custom_scaffold.dart';
+import 'package:gad7/widgets/menu.dart';
 
 class EntriesScreen extends StatefulWidget {
   @override
@@ -62,14 +61,47 @@ class _EntriesState extends State<EntriesScreen> {
       return rows;
     }
 
-    return CustomScaffold(
-      child: DataTable(
-        columns: [
-          DataColumn(label: Text('Date')),
-          DataColumn(label: Text('Result')),
-          DataColumn(label: Text('Severity')),
+    return Scaffold(
+      backgroundColor: Palette.white,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Palette.background,
+        title: Text('Responses'),
+        actions: <Widget>[
+          Menu(),
         ],
-        rows: _getRows(),
+      ),
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          color: Palette.background,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Palette.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(5.0),
+                topRight: Radius.circular(5.0),
+              ),
+            ),
+            child: SingleChildScrollView(
+              child: DataTable(
+                columns: [
+                  DataColumn(
+                    label: Text('Date'),
+                  ),
+                  DataColumn(
+                    label: Text('Result'),
+                    numeric: true,
+                  ),
+                  DataColumn(
+                    label: Text('Severity'),
+                  ),
+                ],
+                rows: _getRows(),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
