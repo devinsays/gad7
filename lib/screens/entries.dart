@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:gad7/database_helper.dart';
 import 'package:gad7/data/scale.dart';
 import 'package:gad7/models/entry.dart';
+import 'package:gad7/screens/entry.dart';
 import 'package:gad7/styles/palette.dart';
 import 'package:gad7/widgets/menu.dart';
 
@@ -50,8 +51,17 @@ class _EntriesState extends State<EntriesScreen> {
                 ),
               ),
               DataCell(
-                Icon(
-                  Icons.chevron_right,
+                IconButton(
+                  icon: Icon(Icons.chevron_right),
+                  tooltip: 'View Details',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => EntryScreen(entry),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
@@ -83,22 +93,24 @@ class _EntriesState extends State<EntriesScreen> {
                 topRight: Radius.circular(5.0),
               ),
             ),
-            child: (entries != null) ? SingleChildScrollView(
-              child: DataTable(
-                columns: [
-                  DataColumn(
-                    label: Text('Date'),
-                  ),
-                  DataColumn(
-                    label: Text('Result'),
-                  ),
-                  DataColumn(
-                    label: Text('Details'),
-                  ),
-                ],
-                rows: _getRows(),
-              ),
-            ) : Container(),
+            child: (entries != null)
+                ? SingleChildScrollView(
+                    child: DataTable(
+                      columns: [
+                        DataColumn(
+                          label: Text('Date'),
+                        ),
+                        DataColumn(
+                          label: Text('Result'),
+                        ),
+                        DataColumn(
+                          label: Text('Details'),
+                        ),
+                      ],
+                      rows: _getRows(),
+                    ),
+                  )
+                : Container(),
           ),
         ),
       ),

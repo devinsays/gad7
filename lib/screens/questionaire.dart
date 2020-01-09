@@ -43,11 +43,12 @@ class _QuestionaireState extends State<QuestionaireScreen> {
   }
 
   // The radio buttons are the same for each question.
+  // Button text is in GAD7.responses list.
   final List<RadioButtonData> radioBtns = [
-    RadioButtonData(0, "Not at all"),
-    RadioButtonData(1, "Several days"),
-    RadioButtonData(2, "More than half the days"),
-    RadioButtonData(3, "Nearly every day"),
+    RadioButtonData(0, GAD7.responses[0]),
+    RadioButtonData(1, GAD7.responses[1]),
+    RadioButtonData(2, GAD7.responses[2]),
+    RadioButtonData(3, GAD7.responses[3]),
   ];
 
   // The responses are all null to start.

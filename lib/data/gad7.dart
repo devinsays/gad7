@@ -8,4 +8,11 @@ class GAD7 {
     'Becoming easily annoyed or irritable.',
     'Feeling afraid as if something awful might happen.',
   ];
+
+  static List<String> responses = [
+    'Not at all',
+    'Several days',
+    'More than half the days',
+    'Nearly every day',
+  ];
 }
