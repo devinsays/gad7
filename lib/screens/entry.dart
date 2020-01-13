@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:gad7/database_helper.dart';
-import 'package:gad7/data/scale.dart';
 import 'package:gad7/models/entry.dart';
 import 'package:gad7/styles/palette.dart';
 import 'package:gad7/styles/styles.dart';

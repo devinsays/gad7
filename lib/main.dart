@@ -7,7 +7,6 @@ import 'package:gad7/screens/instructions.dart';
 import 'package:gad7/screens/questionaire.dart';
 import 'package:gad7/screens/entries.dart';
 import 'package:gad7/screens/about.dart';
-import 'package:gad7/screens/notifications.dart';
 import 'package:gad7/screens/privacy.dart';
 
 void main() {
@@ -26,7 +25,6 @@ void main() {
             '/questionaire': (context) => QuestionaireScreen(),
             '/entries': (context) => EntriesScreen(),
             '/about': (context) => AboutScreen(),
-            '/notifications': (context) => NotificationsScreen(),
             '/privacy': (context) => PrivacyScreen(),
           },
         ),

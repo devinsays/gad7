@@ -23,12 +23,6 @@ class Menu extends StatelessWidget {
           ),
         ),
         PopupMenuItem(
-          value: 'notifications',
-          child: Text(
-            'Notifications',
-          ),
-        ),
-        PopupMenuItem(
           value: 'privacy',
           child: Text(
             'Privacy Policy',
