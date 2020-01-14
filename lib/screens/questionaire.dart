@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:gad7/database_helper.dart';
-import 'package:gad7/data/gad7.dart';
-import 'package:gad7/styles/styles.dart';
-import 'package:gad7/screens/result.dart';
-import 'package:gad7/widgets/custom_scaffold.dart';
-import 'package:gad7/widgets/radio_button_group.dart';
-import 'package:gad7/widgets/styled_flat_button.dart';
+import 'package:anxiety_tracker/database_helper.dart';
+import 'package:anxiety_tracker/data/gad7.dart';
+import 'package:anxiety_tracker/styles/styles.dart';
+import 'package:anxiety_tracker/screens/result.dart';
+import 'package:anxiety_tracker/widgets/custom_scaffold.dart';
+import 'package:anxiety_tracker/widgets/radio_button_group.dart';
+import 'package:anxiety_tracker/widgets/styled_flat_button.dart';
 
 class QuestionaireScreen extends StatefulWidget {
   @override

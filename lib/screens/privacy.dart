@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:gad7/styles/styles.dart';
-import 'package:gad7/widgets/custom_scaffold.dart';
+import 'package:anxiety_tracker/styles/styles.dart';
+import 'package:anxiety_tracker/widgets/custom_scaffold.dart';
 
 class PrivacyScreen extends StatelessWidget {
   @override

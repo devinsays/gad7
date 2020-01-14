@@ -1,4 +1,4 @@
-name: gad7
+name: anxiety_tracker
 description: App for tracking anxiety symptoms over time.
 version: 0.0.1
 
@@ -26,13 +26,12 @@ dev_dependencies:
   flutter_launcher_icons: ^0.7.3
 
 flutter_icons:
-  android: "launcher_icon" 
+  android: "launcher_icon"
   ios: true
   image_path: "assets/images/icon.png"
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

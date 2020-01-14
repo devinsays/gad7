@@ -3,7 +3,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'package:gad7/models/entry.dart';
+import 'package:anxiety_tracker/models/entry.dart';
 
 class DatabaseHelper {
   static final _databaseName = "gad7.db";
@@ -55,5 +55,4 @@ class DatabaseHelper {
     });
     return entries;
   }
-
 }

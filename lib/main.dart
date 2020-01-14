@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:gad7/styles/theme.dart';
-import 'package:gad7/screens/overview.dart';
-import 'package:gad7/screens/instructions.dart';
-import 'package:gad7/screens/questionaire.dart';
-import 'package:gad7/screens/entries.dart';
-import 'package:gad7/screens/about.dart';
-import 'package:gad7/screens/privacy.dart';
+import 'package:anxiety_tracker/styles/theme.dart';
+import 'package:anxiety_tracker/screens/overview.dart';
+import 'package:anxiety_tracker/screens/instructions.dart';
+import 'package:anxiety_tracker/screens/questionaire.dart';
+import 'package:anxiety_tracker/screens/entries.dart';
+import 'package:anxiety_tracker/screens/about.dart';
+import 'package:anxiety_tracker/screens/privacy.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

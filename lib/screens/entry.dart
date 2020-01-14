@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:gad7/models/entry.dart';
-import 'package:gad7/styles/palette.dart';
-import 'package:gad7/styles/styles.dart';
-import 'package:gad7/widgets/menu.dart';
-import 'package:gad7/widgets/entry_row.dart';
+import 'package:anxiety_tracker/models/entry.dart';
+import 'package:anxiety_tracker/styles/palette.dart';
+import 'package:anxiety_tracker/styles/styles.dart';
+import 'package:anxiety_tracker/widgets/menu.dart';
+import 'package:anxiety_tracker/widgets/entry_row.dart';
 
 class EntryScreen extends StatelessWidget {
   final Entry entry;

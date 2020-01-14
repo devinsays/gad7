@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:gad7/database_helper.dart';
-import 'package:gad7/data/scale.dart';
-import 'package:gad7/models/entry.dart';
-import 'package:gad7/screens/entry.dart';
-import 'package:gad7/styles/palette.dart';
-import 'package:gad7/widgets/menu.dart';
+import 'package:anxiety_tracker/database_helper.dart';
+import 'package:anxiety_tracker/data/scale.dart';
+import 'package:anxiety_tracker/models/entry.dart';
+import 'package:anxiety_tracker/screens/entry.dart';
+import 'package:anxiety_tracker/styles/palette.dart';
+import 'package:anxiety_tracker/widgets/menu.dart';
 
 class EntriesScreen extends StatefulWidget {
   @override

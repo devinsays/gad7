@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:gad7/styles/palette.dart';
+import 'package:anxiety_tracker/styles/palette.dart';
 
 class Menu extends StatelessWidget {
   Widget build(BuildContext context) {

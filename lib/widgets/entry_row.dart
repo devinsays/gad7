@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:gad7/data/gad7.dart';
-import 'package:gad7/styles/palette.dart';
-import 'package:gad7/styles/styles.dart';
+import 'package:anxiety_tracker/data/gad7.dart';
+import 'package:anxiety_tracker/styles/palette.dart';
+import 'package:anxiety_tracker/styles/styles.dart';
 
 class EntryRow extends StatelessWidget {
   final int question;

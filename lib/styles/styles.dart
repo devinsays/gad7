@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:gad7/styles/palette.dart';
+import 'package:anxiety_tracker/styles/palette.dart';
 
 class Styles {
   static TextStyle defaultStyle = TextStyle(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:gad7/styles/palette.dart';
-import 'package:gad7/styles/styles.dart';
+import 'package:anxiety_tracker/styles/palette.dart';
+import 'package:anxiety_tracker/styles/styles.dart';
 
 class StyledFlatButton extends StatelessWidget {
   final String text;
